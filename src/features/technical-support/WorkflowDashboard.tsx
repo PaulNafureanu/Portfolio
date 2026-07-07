@@ -26,7 +26,7 @@ export function WorkflowDashboard() {
 
   return (
     <>
-      <section className="flex h-full flex-col overflow-hidden px-5 pt-5 pb-8 md:px-8">
+      <section className="flex h-full flex-col overflow-hidden px-5 pt-5 pb-10 md:px-8">
         <div className="mx-auto flex min-h-0 w-full max-w-[1800px] flex-1 flex-col gap-5">
           <DashboardHeader />
 

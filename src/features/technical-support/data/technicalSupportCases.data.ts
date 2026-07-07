@@ -11,7 +11,6 @@ const postmanOnly = [postman];
 
 const jiraConfluence = [jira, confluence];
 const jiraPostman = [jira, postman];
-const confluencePostman = [confluence, postman];
 const allEvidence = [jira, confluence, postman];
 
 function stageEvidenceByToolSet(
