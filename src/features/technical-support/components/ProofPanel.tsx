@@ -29,7 +29,7 @@ export function ProofPanel({
       title={panelCopy.title}
       description={panelCopy.description}
     >
-      <div className="max-h-[calc(100dvh-16rem)] overflow-auto p-4">
+      <div className="h-full overflow-auto p-4">
         <section className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">
             {activeCase.issueClass}

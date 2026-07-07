@@ -26,11 +26,11 @@ export function WorkflowDashboard() {
 
   return (
     <>
-      <main className="min-h-[calc(100dvh-3.5rem)] px-5 py-6 md:px-8">
-        <div className="mx-auto flex h-full max-w-[1800px] flex-col gap-5">
+      <section className="flex h-full flex-col overflow-hidden px-5 pt-5 pb-8 md:px-8">
+        <div className="mx-auto flex min-h-0 w-full max-w-[1800px] flex-1 flex-col gap-5">
           <DashboardHeader />
 
-          <div className="grid flex-1 gap-5 lg:grid-cols-[280px_280px_minmax(0,1fr)]">
+          <div className="grid min-h-0 flex-1 gap-5 lg:grid-cols-[320px_320px_minmax(0,1fr)]">
             <CaseList
               cases={technicalSupportCases}
               activeCaseIndex={activeCaseIndex}
@@ -50,7 +50,7 @@ export function WorkflowDashboard() {
             />
           </div>
         </div>
-      </main>
+      </section>
 
       {modalItem ? (
         <ImageModal item={modalItem} onClose={() => setModalItem(null)} />

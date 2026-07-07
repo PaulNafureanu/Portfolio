@@ -15,9 +15,9 @@ export function PanelShell({
 }: PanelShellProps) {
   return (
     <section
-      className={`min-h-0 rounded-2xl border border-slate-200 bg-white shadow-sm ${className}`}
+      className={`flex min-h-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm ${className}`}
     >
-      <div className="border-b border-slate-200 p-4">
+      <div className="shrink-0 border-b border-slate-200 p-4">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">
           {eyebrow}
         </p>
@@ -29,7 +29,7 @@ export function PanelShell({
         <p className="mt-1 text-xs leading-5 text-slate-500">{description}</p>
       </div>
 
-      {children}
+      <div className="min-h-0 flex-1 overflow-hidden">{children}</div>
     </section>
   );
 }

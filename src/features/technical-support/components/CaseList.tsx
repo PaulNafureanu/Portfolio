@@ -21,7 +21,7 @@ export function CaseList({
       title={panelCopy.title}
       description={panelCopy.description}
     >
-      <div className="max-h-[calc(100dvh-16rem)] overflow-auto p-3">
+      <div className="h-full overflow-auto p-3">
         {cases.map((item, index) => {
           const isActive = index === activeCaseIndex;
 

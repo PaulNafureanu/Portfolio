@@ -2,38 +2,38 @@ import { Link, Outlet } from "react-router";
 
 export function AppLayout() {
   return (
-    <div className="min-h-screen bg-[#f7f8fb] text-slate-950">
-      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
-        <div className="flex h-14 w-full items-center justify-between px-6 md:px-10 xl:px-14">
-          <Link
-            to="/"
-            className="text-sm font-semibold tracking-tight text-slate-950"
-          >
+    <div className="flex h-dvh flex-col overflow-hidden bg-slate-50 text-slate-950">
+      <header className="shrink-0 border-b border-slate-200 bg-white">
+        <nav className="mx-auto flex h-14 max-w-[1800px] items-center justify-between px-6 md:px-8">
+          <Link to="/" className="text-sm font-semibold text-slate-950">
             Paul-Andrei Nafureanu
           </Link>
 
-          <nav className="flex items-center gap-4 text-xs text-slate-600 md:gap-6">
-            <Link to="/" className="hover:text-slate-950">
+          <div className="flex items-center gap-5 text-sm">
+            <Link to="/" className="text-slate-600 hover:text-slate-950">
               Home
             </Link>
+
             <Link
               to="/technical-support-workflow-examples"
-              className="hover:text-slate-950"
+              className="text-slate-600 hover:text-slate-950"
             >
               Workflows
             </Link>
 
             <a
               href="mailto:paul.nafureanu@gmail.com"
-              className="rounded-md border border-slate-300 bg-white px-3 py-1.5 font-medium text-slate-800 transition hover:bg-slate-50"
+              className="rounded-md border border-slate-300 bg-white px-3 py-1.5 font-medium text-slate-800 hover:bg-slate-50"
             >
               Contact
             </a>
-          </nav>
-        </div>
+          </div>
+        </nav>
       </header>
 
-      <Outlet />
+      <main className="min-h-0 flex-1 overflow-hidden">
+        <Outlet />
+      </main>
     </div>
   );
 }
