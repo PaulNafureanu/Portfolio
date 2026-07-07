@@ -17,7 +17,7 @@ export function AppLayout() {
               to="/technical-support-workflow-examples"
               className="hover:text-slate-950"
             >
-              Workflow examples
+              Support workflows
             </Link>
 
             <a

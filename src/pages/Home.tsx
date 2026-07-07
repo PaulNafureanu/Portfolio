@@ -16,6 +16,10 @@ export function Home() {
               {homeContent.name}
             </h1>
 
+            <p className="mt-6 max-w-2xl text-xl leading-9 text-slate-800">
+              {homeContent.roleLine}
+            </p>
+
             <p className="mt-6 max-w-2xl text-xl leading-9 text-slate-700">
               {homeContent.headline}
             </p>

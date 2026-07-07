@@ -84,7 +84,7 @@ export function WorkSamplePanel() {
           onClick={() => setIsPreviewOpen(false)}
         >
           <div
-            className="max-h-[92vh] w-full max-w-6xl overflow-hidden rounded-2xl border border-smax-h-[92vh] w-full max-w-6xl overflow-hidden rounded-2xl border border-slate-700 bg-white shadow-2xl"
+            className="max-h-[94vh] w-[94vw] max-w-[1680px] overflow-hidden rounded-2xl border border-slate-700 bg-white shadow-2xl"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3">
@@ -106,7 +106,7 @@ export function WorkSamplePanel() {
               </button>
             </div>
 
-            <div className="max-h-[80vh] overflow-auto bg-slate-100 p-3">
+            <div className="max-h-[86vh] overflow-auto bg-slate-100 p-3">
               <img
                 src={activeSample.image}
                 alt={activeSample.alt}
