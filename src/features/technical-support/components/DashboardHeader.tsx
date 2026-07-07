@@ -1,13 +1,13 @@
 export function DashboardHeader() {
   return (
-    <header className="px-1 py-3">
+    <header className="px-1 py-2">
       <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-600">
         Support Operations Lab
       </p>
 
       <div className="mt-3 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
         <div>
-          <h1 className="text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">
+          <h1 className="text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
             Technical Support Workflow Examples
           </h1>
 
