@@ -4,15 +4,18 @@ export function AppLayout() {
   return (
     <div className="min-h-screen bg-[#f7f8fb] text-slate-950">
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-          <Link to="/" className="font-semibold tracking-tight text-slate-950">
+        <div className="flex h-14 w-full items-center justify-between px-5 md:px-8">
+          <Link
+            to="/"
+            className="text-sm font-semibold tracking-tight text-slate-950"
+          >
             Paul-Andrei Nafureanu
           </Link>
 
-          <nav className="flex items-center gap-6 text-sm text-slate-600">
+          <nav className="flex items-center gap-4 text-xs text-slate-600 md:gap-6">
             <Link
               to="/technical-support-workflow-examples"
-              className="hover:text-slate-950"
+              className="hidden hover:text-slate-950 sm:inline"
             >
               Workflow examples
             </Link>

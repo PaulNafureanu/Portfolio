@@ -1,179 +1,196 @@
 import { Link } from "react-router";
 import { Badge } from "../components/Badge";
 
-const focusAreas = [
-  "Technical Support",
-  "Application Support",
-  "SaaS Support",
-  "IT Service Desk",
-  "Support Operations",
-  "Customer Operations",
+const profileBlocks = [
+  {
+    label: "About",
+    text: "Technical / Application Support candidate focused on structured issue handling, clear communication, and reliable execution.",
+  },
+  {
+    label: "Background",
+    text: "Customer support, regulated banking procedures, data/document validation, operations, and technical account support.",
+  },
+  {
+    label: "Target roles",
+    text: "Technical Support, Application Support, SaaS Support, IT Service Desk, and Support Operations.",
+  },
+  {
+    label: "Extra",
+    text: "I build small software prototypes to better understand user flows, APIs, errors, databases, and product behavior from the support side.",
+  },
 ];
 
-const supportHabits = [
-  "Ticket triage",
-  "Clear customer updates",
-  "Internal notes",
-  "Escalation handoff",
-  "Documentation",
-  "API checks",
+const links = [
+  {
+    label: "Email",
+    value: "paul.nafureanu@gmail.com",
+    href: "mailto:paul.nafureanu@gmail.com",
+  },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/paulnafureanu",
+    href: "https://www.linkedin.com/in/paulnafureanu",
+  },
+  {
+    label: "GitHub",
+    value: "github.com/PaulNafureanu",
+    href: "https://github.com/PaulNafureanu",
+  },
+  {
+    label: "CV",
+    value: "Download PDF",
+    href: "/cv.pdf",
+  },
+];
+
+const evidenceCards = [
+  {
+    label: "Jira",
+    title: "Ticket workflow",
+    image: "/assets/work-samples/jira-board-workflow.png",
+  },
+  {
+    label: "Confluence",
+    title: "Troubleshooting guide",
+    image: "/assets/work-samples/confluence-guide.png",
+  },
+  {
+    label: "Postman",
+    title: "API check",
+    image: "/assets/work-samples/postman-200-ok.png",
+  },
 ];
 
 export function Home() {
   return (
     <main>
-      <section className="mx-auto grid min-h-[calc(100vh-4rem)] max-w-7xl items-center gap-12 px-6 py-20 lg:grid-cols-[1.15fr_0.85fr]">
-        <div>
-          <div className="mb-6 flex flex-wrap gap-2">
-            {focusAreas.slice(0, 4).map((area) => (
-              <Badge key={area}>{area}</Badge>
-            ))}
-          </div>
-
-          <h1 className="text-5xl font-semibold tracking-tight text-slate-950 md:text-7xl">
-            Paul-Andrei Nafureanu
-          </h1>
-
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-            Technical / Application Support candidate with experience across
-            customer support, operations, data validation, and software-support
-            workflows.
-          </p>
-
-          <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
-            I help users by turning unclear issues into structured tickets,
-            following procedures, documenting cases, communicating clearly, and
-            escalating with useful context.
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              to="/technical-support-workflow-examples"
-              className="rounded-md bg-slate-950 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
-            >
-              View workflow examples
-            </Link>
-
-            <a
-              href="/cv.pdf"
-              className="rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-            >
-              Download CV
-            </a>
-
-            <a
-              href="mailto:paul.nafureanu@gmail.com"
-              className="rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-            >
-              Contact
-            </a>
-          </div>
-        </div>
-
-        <aside className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">
-              Profile
-            </p>
-
-            <h2 className="mt-4 text-2xl font-semibold tracking-tight text-slate-950">
-              Support-focused, technical enough to investigate.
-            </h2>
-
-            <p className="mt-4 text-sm leading-6 text-slate-600">
-              Practical background across customer-facing support, regulated
-              banking procedures, data/document validation, and operational
-              execution.
-            </p>
-          </div>
-
-          <div className="mt-5 grid gap-3">
-            {supportHabits.map((habit) => (
-              <div
-                key={habit}
-                className="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3"
-              >
-                <span className="text-sm font-medium text-slate-800">
-                  {habit}
-                </span>
-                <span className="h-2 w-2 rounded-full bg-blue-600" />
-              </div>
-            ))}
-          </div>
-        </aside>
-      </section>
-
-      <section className="border-t border-slate-200 bg-white py-16">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">
-                Background
-              </p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950">
-                Customer support, operations, and technical workflow practice.
-              </h2>
+      <section className="min-h-[calc(100vh-3.5rem)] px-5 py-12 md:px-8 lg:px-12 xl:px-20">
+        <div className="grid min-h-[calc(100vh-8rem)] items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
+          <div className="max-w-3xl">
+            <div className="mb-6 flex flex-wrap gap-2">
+              <Badge>Technical Support</Badge>
+              <Badge>Application Support</Badge>
+              <Badge>SaaS Support</Badge>
+              <Badge>IT Service Desk</Badge>
             </div>
 
-            <div className="space-y-5 text-base leading-8 text-slate-600">
-              <p>
-                My background combines customer-facing support, regulated
-                banking procedures, technical account support, data/document
-                validation, and internal operational systems.
-              </p>
+            <h1 className="max-w-4xl text-5xl font-semibold tracking-tight text-slate-950 md:text-7xl">
+              Paul-Andrei Nafureanu
+            </h1>
 
-              <p>
-                Across these roles, I developed habits around accuracy, clear
-                communication, troubleshooting, documentation, escalation, and
-                reliable follow-through under pressure.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+              I help users by turning unclear issues into structured tickets,
+              following procedures, documenting cases, communicating clearly,
+              and escalating with useful context.
+            </p>
 
-      <section className="border-t border-slate-200 py-16">
-        <div className="mx-auto max-w-7xl px-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">
-            Featured work sample
-          </p>
-
-          <div className="mt-4 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-            <div className="grid gap-8 lg:grid-cols-[1fr_0.6fr]">
-              <div>
-                <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
-                  Technical Support Workflow Examples
-                </h2>
-
-                <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">
-                  A compact work sample showing how I handle common support
-                  scenarios: ticket triage, priority reasoning, customer
-                  replies, internal notes, escalation handoff, Confluence-style
-                  documentation, and Postman API checks.
-                </p>
-
-                <Link
-                  to="/technical-support-workflow-examples"
-                  className="mt-6 inline-flex rounded-md bg-slate-950 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              {profileBlocks.map((block) => (
+                <article
+                  key={block.label}
+                  className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
                 >
-                  Open workflow examples
-                </Link>
-              </div>
-
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                <p className="text-sm font-semibold text-slate-950">
-                  Demonstrates
-                </p>
-
-                <div className="mt-4 flex flex-wrap gap-2">
-                  <Badge>Jira-style tickets</Badge>
-                  <Badge>Confluence docs</Badge>
-                  <Badge>Postman checks</Badge>
-                  <Badge>Escalation notes</Badge>
-                  <Badge>Customer replies</Badge>
-                </div>
-              </div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">
+                    {block.label}
+                  </p>
+                  <p className="mt-3 text-sm leading-6 text-slate-600">
+                    {block.text}
+                  </p>
+                </article>
+              ))}
             </div>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                to="/technical-support-workflow-examples"
+                className="rounded-md bg-slate-950 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
+              >
+                View workflow examples
+              </Link>
+
+              <a
+                href="/cv.pdf"
+                className="rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+              >
+                Download CV
+              </a>
+            </div>
+          </div>
+
+          <aside className="rounded-3xl border border-slate-200 bg-white p-4 shadow-sm md:p-6">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">
+                Work sample
+              </p>
+
+              <h2 className="mt-4 text-2xl font-semibold tracking-tight text-slate-950">
+                Support workflows made visible.
+              </h2>
+
+              <p className="mt-3 text-sm leading-6 text-slate-600">
+                Evidence from simulated Jira, Confluence, and Postman support
+                workflows.
+              </p>
+            </div>
+
+            <div className="mt-4 grid gap-4">
+              {evidenceCards.map((card) => (
+                <article
+                  key={card.label}
+                  className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
+                >
+                  <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">
+                        {card.label}
+                      </p>
+                      <p className="mt-1 text-sm font-semibold text-slate-950">
+                        {card.title}
+                      </p>
+                    </div>
+                    <span className="h-2 w-2 rounded-full bg-blue-600" />
+                  </div>
+
+                  <div className="h-32 overflow-hidden bg-slate-100 md:h-40">
+                    <img
+                      src={card.image}
+                      alt={`${card.label} ${card.title}`}
+                      className="h-full w-full object-cover object-top"
+                    />
+                  </div>
+                </article>
+              ))}
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section className="border-t border-slate-200 bg-white px-5 py-16 md:px-8 lg:px-12 xl:px-20">
+        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">
+              Contact and links
+            </p>
+            <h2 className="mt-3 max-w-xl text-3xl font-semibold tracking-tight text-slate-950">
+              Direct links for screening and follow-up.
+            </h2>
+          </div>
+
+          <div className="grid gap-3">
+            {links.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="flex flex-col justify-between gap-1 rounded-2xl border border-slate-200 bg-slate-50 p-4 hover:bg-white sm:flex-row sm:items-center"
+              >
+                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                  {link.label}
+                </span>
+                <span className="text-sm font-medium text-slate-950">
+                  {link.value}
+                </span>
+              </a>
+            ))}
           </div>
         </div>
       </section>
