@@ -1,10 +1,15 @@
-import { Badge } from "../components/Badge";
-import { ScenarioCard } from "../components/ScenarioCard";
+import { useState } from "react";
+import { EvidenceCard } from "../components/EvidenceCard";
+import { ImageModal } from "../components/ImageModal";
+import { ScenarioDashboard } from "../components/ScenarioDashboard";
 import { Section } from "../components/Section";
 import { WorkflowStrip } from "../components/WorkflowStrip";
-import { edgeCases, scenarios } from "../data/scenarios";
+import { edgeCases } from "../data/scenarios";
+import { evidenceItems, type EvidenceItem } from "../data/evidence";
 
 export function TechnicalSupportWorkflowExamples() {
+  const [modalItem, setModalItem] = useState<EvidenceItem | null>(null);
+
   return (
     <main>
       <section className="mx-auto max-w-7xl px-6 py-20">
@@ -18,18 +23,10 @@ export function TechnicalSupportWorkflowExamples() {
           </h1>
 
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
-            Simulated Technical, Application, and SaaS Support workflows showing
-            how common customer issues can be triaged, documented, investigated,
-            communicated, and escalated.
+            A proof-focused work sample showing simulated Technical,
+            Application, and SaaS Support workflows using Jira-style ticketing,
+            Confluence-style documentation, and Postman API checks.
           </p>
-
-          <div className="mt-8 flex flex-wrap gap-2">
-            <Badge>Jira-style tickets</Badge>
-            <Badge>Confluence-style documentation</Badge>
-            <Badge>Postman API checks</Badge>
-            <Badge>Customer communication</Badge>
-            <Badge>Escalation handoff</Badge>
-          </div>
 
           <div className="mt-8 rounded-xl border border-blue-200 bg-blue-50 p-4 text-sm leading-6 text-blue-950">
             These examples are simulated for portfolio demonstration and
@@ -37,6 +34,18 @@ export function TechnicalSupportWorkflowExamples() {
           </div>
         </div>
       </section>
+
+      <Section
+        eyebrow="Evidence"
+        title="Evidence overview"
+        description="Fast proof of the lab: ticket workflow, troubleshooting documentation, and API response checking."
+      >
+        <div className="grid gap-4 lg:grid-cols-3">
+          {evidenceItems.map((item) => (
+            <EvidenceCard key={item.key} item={item} onOpen={setModalItem} />
+          ))}
+        </div>
+      </Section>
 
       <Section
         eyebrow="Workflow"
@@ -47,19 +56,11 @@ export function TechnicalSupportWorkflowExamples() {
       </Section>
 
       <Section
-        eyebrow="Examples"
-        title="Common support workflows"
-        description="Ten realistic scenarios used to practice Technical Support, Application Support, SaaS Support, and Support Operations workflows."
+        eyebrow="Dashboard"
+        title="Workflow example viewer"
+        description="Select a scenario to view the handling path, information needed, customer reply, internal note, related evidence, and escalation or resolution outcome."
       >
-        <div className="grid gap-4">
-          {scenarios.map((scenario, index) => (
-            <ScenarioCard
-              key={scenario.title}
-              scenario={scenario}
-              index={index}
-            />
-          ))}
-        </div>
+        <ScenarioDashboard />
       </Section>
 
       <Section
@@ -96,6 +97,10 @@ export function TechnicalSupportWorkflowExamples() {
           </p>
         </div>
       </section>
+
+      {modalItem && (
+        <ImageModal item={modalItem} onClose={() => setModalItem(null)} />
+      )}
     </main>
   );
 }
