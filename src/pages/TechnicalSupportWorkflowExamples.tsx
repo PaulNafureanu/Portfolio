@@ -1,30 +1,8 @@
 import { Badge } from "../components/Badge";
+import { ScenarioCard } from "../components/ScenarioCard";
 import { Section } from "../components/Section";
 import { WorkflowStrip } from "../components/WorkflowStrip";
-
-const demoScenarios = [
-  {
-    title: "Payment completed but account still unpaid",
-    type: "Billing / Application Support",
-    priority: "High",
-    tools: "Jira, Postman",
-    path: "To Do → In Progress → Escalated",
-  },
-  {
-    title: "Login page returns 500 error",
-    type: "Incident",
-    priority: "High if reproduced",
-    tools: "Jira, Confluence",
-    path: "To Do → In Progress → Escalated",
-  },
-  {
-    title: "Password reset email not received",
-    type: "Account Access",
-    priority: "Medium",
-    tools: "Jira, Confluence",
-    path: "To Do → Waiting for Customer → Resolved",
-  },
-];
+import { edgeCases, scenarios } from "../data/scenarios";
 
 export function TechnicalSupportWorkflowExamples() {
   return (
@@ -40,9 +18,9 @@ export function TechnicalSupportWorkflowExamples() {
           </h1>
 
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
-            A compact work sample showing how I structure common Technical,
-            Application, and SaaS Support issues from first report to resolution
-            or escalation.
+            Simulated Technical, Application, and SaaS Support workflows showing
+            how common customer issues can be triaged, documented, investigated,
+            communicated, and escalated.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-2">
@@ -71,50 +49,53 @@ export function TechnicalSupportWorkflowExamples() {
       <Section
         eyebrow="Examples"
         title="Common support workflows"
-        description="Initial version with three examples. The page will expand to ten common scenarios plus edge cases."
+        description="Ten realistic scenarios used to practice Technical Support, Application Support, SaaS Support, and Support Operations workflows."
       >
         <div className="grid gap-4">
-          {demoScenarios.map((scenario) => (
-            <article
+          {scenarios.map((scenario, index) => (
+            <ScenarioCard
               key={scenario.title}
-              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
-            >
-              <div className="flex flex-col justify-between gap-4 md:flex-row md:items-start">
-                <div>
-                  <h3 className="text-lg font-semibold text-slate-950">
-                    {scenario.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-slate-600">{scenario.type}</p>
-                </div>
-
-                <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">
-                  {scenario.priority}
-                </span>
-              </div>
-
-              <div className="mt-5 grid gap-3 text-sm md:grid-cols-2">
-                <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                    Status path
-                  </p>
-                  <p className="mt-2 font-medium text-slate-900">
-                    {scenario.path}
-                  </p>
-                </div>
-
-                <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                    Tools
-                  </p>
-                  <p className="mt-2 font-medium text-slate-900">
-                    {scenario.tools}
-                  </p>
-                </div>
-              </div>
-            </article>
+              scenario={scenario}
+              index={index}
+            />
           ))}
         </div>
       </Section>
+
+      <Section
+        eyebrow="Edge cases"
+        title="Additional judgment scenarios"
+        description="Less frequent but important cases used to practice security awareness, escalation discipline, and calm handling of unclear or sensitive issues."
+      >
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+          {edgeCases.map((edgeCase) => (
+            <div
+              key={edgeCase}
+              className="rounded-xl border border-slate-200 bg-white p-4 text-sm font-medium leading-6 text-slate-700 shadow-sm"
+            >
+              {edgeCase}
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <section className="border-t border-slate-200 bg-slate-950 px-6 py-16 text-white">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-400">
+            Recruiter summary
+          </p>
+
+          <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight">
+            This page makes my support workflow visible before an interview.
+          </h2>
+
+          <p className="mt-5 max-w-3xl text-base leading-8 text-slate-300">
+            It shows how I structure unclear issues, ask for missing
+            information, document investigation steps, communicate with
+            customers, and decide when to resolve or escalate.
+          </p>
+        </div>
+      </section>
     </main>
   );
 }
