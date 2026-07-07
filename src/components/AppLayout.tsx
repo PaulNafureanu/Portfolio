@@ -15,17 +15,10 @@ export function AppLayout() {
           <nav className="flex items-center gap-4 text-xs text-slate-600 md:gap-6">
             <Link
               to="/technical-support-workflow-examples"
-              className="hidden hover:text-slate-950 sm:inline"
+              className="hover:text-slate-950"
             >
               Workflow examples
             </Link>
-
-            <a
-              href="mailto:paul.nafureanu@gmail.com"
-              className="rounded-md border border-slate-300 px-3 py-1.5 font-medium text-slate-800 hover:bg-slate-50"
-            >
-              Contact
-            </a>
           </nav>
         </div>
       </header>
