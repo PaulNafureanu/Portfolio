@@ -1,7 +1,12 @@
-import type { EvidenceItem } from "../data/evidence";
+type ImageModalItem = {
+  label: string;
+  title: string;
+  image: string;
+  alt: string;
+};
 
 type ImageModalProps = {
-  item: EvidenceItem;
+  item: ImageModalItem;
   onClose: () => void;
 };
 

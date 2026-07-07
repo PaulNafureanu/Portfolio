@@ -1,6 +1,6 @@
 import { Link } from "react-router";
-import { WorkSamplePanel } from "../components/WorkSamplePanel";
-import { homeContent } from "../data/homeContent";
+import { homeContent } from "./homeContent";
+import { WorkSamplePanel } from "./WorkSamplePanel";
 
 export function Home() {
   return (

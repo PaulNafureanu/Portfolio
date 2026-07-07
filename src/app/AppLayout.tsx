@@ -13,11 +13,14 @@ export function AppLayout() {
           </Link>
 
           <nav className="flex items-center gap-4 text-xs text-slate-600 md:gap-6">
+            <Link to="/" className="hover:text-slate-950">
+              Home
+            </Link>
             <Link
               to="/technical-support-workflow-examples"
               className="hover:text-slate-950"
             >
-              Support workflows
+              Workflows
             </Link>
 
             <a

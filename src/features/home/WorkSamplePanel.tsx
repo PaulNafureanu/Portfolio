@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { workSamples } from "../data/workSamples";
+import { workSamples } from "./workSamples";
 
 export function WorkSamplePanel() {
   const [activeKey, setActiveKey] = useState(workSamples[0].key);
