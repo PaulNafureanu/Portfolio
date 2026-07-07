@@ -1,15 +1,12 @@
 import { useMemo, useState } from "react";
 import { ImageModal } from "../../components/ImageModal";
-import { DashboardHeader } from "./components/DashboardHeader";
 import { CaseList } from "./components/CaseList";
+import { DashboardHeader } from "./components/DashboardHeader";
 import { ProofPanel } from "./components/ProofPanel";
 import { WorkflowStageList } from "./components/WorkflowStageList";
-import {
-  workflowCases,
-  workflowStages,
-  type WorkflowEvidence,
-  type WorkflowStageKey,
-} from "./workflowDashboard";
+import { technicalSupportCases } from "./data/technicalSupportCases.data";
+import { technicalSupportWorkflowStages } from "./data/technicalSupportWorkflowStages.data";
+import type { WorkflowEvidence, WorkflowStageKey } from "./types";
 
 export function WorkflowDashboard() {
   const [activeCaseIndex, setActiveCaseIndex] = useState(0);
@@ -17,12 +14,13 @@ export function WorkflowDashboard() {
     useState<WorkflowStageKey>("customer-report");
   const [modalItem, setModalItem] = useState<WorkflowEvidence | null>(null);
 
-  const activeCase = workflowCases[activeCaseIndex];
+  const activeCase = technicalSupportCases[activeCaseIndex];
 
   const activeStage = useMemo(() => {
     return (
-      workflowStages.find((stage) => stage.key === activeStageKey) ??
-      workflowStages[0]
+      technicalSupportWorkflowStages.find(
+        (stage) => stage.key === activeStageKey,
+      ) ?? technicalSupportWorkflowStages[0]
     );
   }, [activeStageKey]);
 
@@ -32,15 +30,15 @@ export function WorkflowDashboard() {
         <div className="mx-auto flex h-full max-w-[1800px] flex-col gap-5">
           <DashboardHeader />
 
-          <div className="grid flex-1 gap-5 lg:grid-cols-[280px_230px_minmax(0,1fr)]">
+          <div className="grid flex-1 gap-5 lg:grid-cols-[280px_280px_minmax(0,1fr)]">
             <CaseList
-              cases={workflowCases}
+              cases={technicalSupportCases}
               activeCaseIndex={activeCaseIndex}
               onSelectCase={setActiveCaseIndex}
             />
 
             <WorkflowStageList
-              stages={workflowStages}
+              stages={technicalSupportWorkflowStages}
               activeStageKey={activeStageKey}
               onSelectStage={setActiveStageKey}
             />
@@ -54,9 +52,9 @@ export function WorkflowDashboard() {
         </div>
       </main>
 
-      {modalItem && (
+      {modalItem ? (
         <ImageModal item={modalItem} onClose={() => setModalItem(null)} />
-      )}
+      ) : null}
     </>
   );
 }

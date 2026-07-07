@@ -1,4 +1,5 @@
-import type { WorkflowCase } from "../workflowDashboard";
+import { technicalSupportDashboardContent } from "../data/technicalSupportDashboard.content";
+import type { WorkflowCase } from "../types";
 import { PanelShell } from "./PanelShell";
 
 type CaseListProps = {
@@ -7,6 +8,8 @@ type CaseListProps = {
   onSelectCase: (index: number) => void;
 };
 
+const { cases: panelCopy } = technicalSupportDashboardContent.panels;
+
 export function CaseList({
   cases,
   activeCaseIndex,
@@ -14,9 +17,9 @@ export function CaseList({
 }: CaseListProps) {
   return (
     <PanelShell
-      eyebrow="Cases"
-      title="Support cases"
-      description="Choose one scenario."
+      eyebrow={panelCopy.eyebrow}
+      title={panelCopy.title}
+      description={panelCopy.description}
     >
       <div className="max-h-[calc(100dvh-16rem)] overflow-auto p-3">
         {cases.map((item, index) => {
@@ -24,31 +27,21 @@ export function CaseList({
 
           return (
             <button
-              key={item.title}
+              key={item.id}
               type="button"
               onClick={() => onSelectCase(index)}
               className={[
                 "mb-3 w-full rounded-xl border p-4 text-left transition last:mb-0",
                 isActive
-                  ? "border-slate-950 bg-slate-950 text-white"
+                  ? "border-blue-300 bg-blue-50 text-slate-950"
                   : "border-slate-200 bg-white text-slate-950 hover:bg-slate-50",
               ].join(" ")}
             >
-              <p
-                className={[
-                  "text-xs font-semibold uppercase tracking-[0.16em]",
-                  isActive ? "text-blue-300" : "text-blue-600",
-                ].join(" ")}
-              >
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-600">
                 Case {String(index + 1).padStart(2, "0")}
               </p>
 
-              <p
-                className={[
-                  "mt-3 text-xs font-semibold uppercase tracking-[0.14em]",
-                  isActive ? "text-slate-300" : "text-slate-500",
-                ].join(" ")}
-              >
+              <p className="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
                 {item.issueClass}
               </p>
 

@@ -27,6 +27,7 @@ export function ImageModal({ item, onClose }: ImageModalProps) {
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">
               {item.label}
             </p>
+
             <p className="text-sm font-semibold text-slate-950">{item.title}</p>
           </div>
 

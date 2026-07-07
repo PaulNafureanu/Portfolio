@@ -21,9 +21,11 @@ export function PanelShell({
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">
           {eyebrow}
         </p>
+
         <h2 className="mt-2 text-lg font-semibold tracking-tight text-slate-950">
           {title}
         </h2>
+
         <p className="mt-1 text-xs leading-5 text-slate-500">{description}</p>
       </div>
 

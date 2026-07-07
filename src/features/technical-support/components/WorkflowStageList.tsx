@@ -1,4 +1,5 @@
-import type { WorkflowStage, WorkflowStageKey } from "../workflowDashboard";
+import { technicalSupportDashboardContent } from "../data/technicalSupportDashboard.content";
+import type { WorkflowStage, WorkflowStageKey } from "../types";
 import { PanelShell } from "./PanelShell";
 
 type WorkflowStageListProps = {
@@ -7,6 +8,8 @@ type WorkflowStageListProps = {
   onSelectStage: (key: WorkflowStageKey) => void;
 };
 
+const { workflow: panelCopy } = technicalSupportDashboardContent.panels;
+
 export function WorkflowStageList({
   stages,
   activeStageKey,
@@ -14,9 +17,9 @@ export function WorkflowStageList({
 }: WorkflowStageListProps) {
   return (
     <PanelShell
-      eyebrow="Workflow"
-      title="Handling stages"
-      description="Same structure across cases."
+      eyebrow={panelCopy.eyebrow}
+      title={panelCopy.title}
+      description={panelCopy.description}
     >
       <div className="max-h-[calc(100dvh-16rem)] overflow-auto p-3">
         {stages.map((stage, index) => {

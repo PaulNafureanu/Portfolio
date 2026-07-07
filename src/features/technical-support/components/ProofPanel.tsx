@@ -1,8 +1,5 @@
-import type {
-  WorkflowCase,
-  WorkflowEvidence,
-  WorkflowStage,
-} from "../workflowDashboard";
+import { technicalSupportDashboardContent } from "../data/technicalSupportDashboard.content";
+import type { WorkflowCase, WorkflowEvidence, WorkflowStage } from "../types";
 import { PanelShell } from "./PanelShell";
 
 type ProofPanelProps = {
@@ -11,6 +8,9 @@ type ProofPanelProps = {
   onOpenEvidence: (item: WorkflowEvidence) => void;
 };
 
+const { proof: panelCopy } = technicalSupportDashboardContent.panels;
+const proofCopy = technicalSupportDashboardContent.proof;
+
 export function ProofPanel({
   activeCase,
   activeStage,
@@ -18,11 +18,16 @@ export function ProofPanel({
 }: ProofPanelProps) {
   const activeDetail = activeCase.stageDetails[activeStage.key];
 
+  const stageEvidence =
+    activeCase.stageEvidence?.[activeStage.key] ?? activeCase.evidence;
+
+  const stageWalkthrough = activeCase.stageWalkthroughs?.[activeStage.key];
+
   return (
     <PanelShell
-      eyebrow="Proof"
-      title="Selected case"
-      description="Evidence and handling note."
+      eyebrow={panelCopy.eyebrow}
+      title={panelCopy.title}
+      description={panelCopy.description}
     >
       <div className="max-h-[calc(100dvh-16rem)] overflow-auto p-4">
         <section className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
@@ -43,7 +48,7 @@ export function ProofPanel({
 
         <section className="mt-4 rounded-2xl border border-slate-200 bg-white p-5">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">
-            Selected stage
+            {proofCopy.selectedStageLabel}
           </p>
 
           <h3 className="mt-3 text-xl font-semibold tracking-tight text-slate-950">
@@ -56,7 +61,7 @@ export function ProofPanel({
 
           <details className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4">
             <summary className="cursor-pointer text-sm font-semibold text-slate-950">
-              View handling note
+              {proofCopy.handlingNoteLabel}
             </summary>
 
             <div className="mt-4 border-t border-slate-200 pt-4">
@@ -71,38 +76,39 @@ export function ProofPanel({
           </details>
         </section>
 
-        {activeCase.video ? (
+        {stageWalkthrough ? (
           <section className="mt-4 rounded-2xl border border-slate-200 bg-white p-5">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">
-              Walkthrough video
+              {proofCopy.walkthroughLabel}
             </p>
 
             <h3 className="mt-3 text-lg font-semibold text-slate-950">
-              {activeCase.video.title}
+              {stageWalkthrough.title}
             </h3>
+
+            <p className="mt-2 text-sm leading-6 text-slate-600">
+              {stageWalkthrough.description}
+            </p>
 
             <video
               className="mt-4 aspect-video w-full rounded-xl border border-slate-200 bg-slate-950"
               controls
-              src={activeCase.video.url}
+              src={stageWalkthrough.url}
             />
           </section>
         ) : null}
 
         <section className="mt-4">
-          <div className="mb-3 flex items-center justify-between gap-4">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">
-                Proof artifacts
-              </p>
-              <p className="mt-1 text-xs text-slate-500">
-                Click a screenshot to inspect it.
-              </p>
-            </div>
+          <div className="mb-3">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">
+              {proofCopy.proofForStageLabel}
+            </p>
+
+            <p className="mt-1 text-xs text-slate-500">{proofCopy.proofHint}</p>
           </div>
 
           <div className="grid gap-4 xl:grid-cols-2">
-            {activeCase.evidence.map((item) => (
+            {stageEvidence.map((item) => (
               <button
                 key={item.key}
                 type="button"
