@@ -36,9 +36,10 @@ export const workflowEvidence = {
 
   freshdeskCustomerReport: {
     key: "case01-freshdesk-customer-report",
-    label: "",
-    title: "Freshdesk",
-    description: "",
+    label: "Freshdesk",
+    title: "Initial customer ticket",
+    description:
+      "Freshdesk record showing the customer report, incident status, priority, and billing/access tags.",
     image: "/assets/work-samples/case01_stage01_freshdesk_customer-report.png",
     alt: "Freshdesk ticket showing the initial customer report.",
     type: "screenshot",

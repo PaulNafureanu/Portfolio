@@ -10,9 +10,9 @@ export function WorkSamplePanel() {
 
   return (
     <>
-      <aside className="w-full max-w-[860px] justify-self-end rounded-[1.75rem] border border-slate-200 bg-white p-3 shadow-sm">
-        <div className="overflow-hidden rounded-[1.2rem] border border-slate-200 bg-white">
-          <div className="grid grid-cols-3 border-b border-slate-200 bg-slate-50">
+      <aside className="w-full max-w-[860px] rounded-[1.5rem] border border-slate-200 bg-white p-2 shadow-sm sm:rounded-[1.75rem] sm:p-3 lg:justify-self-end">
+        <div className="overflow-hidden rounded-[1.1rem] border border-slate-200 bg-white sm:rounded-[1.2rem]">
+          <div className="flex overflow-x-auto border-b border-slate-200 bg-slate-50 sm:grid sm:grid-cols-3 sm:overflow-visible">
             {workSamples.map((sample) => {
               const isActive = sample.key === activeKey;
 
@@ -22,7 +22,7 @@ export function WorkSamplePanel() {
                   type="button"
                   onClick={() => setActiveKey(sample.key)}
                   className={[
-                    "cursor-pointer border-r border-slate-200 px-4 py-3 text-left text-sm font-medium transition last:border-r-0",
+                    "min-w-[8.5rem] cursor-pointer border-r border-slate-200 px-4 py-3 text-left text-sm font-medium transition last:border-r-0 sm:min-w-0",
                     isActive
                       ? "bg-white text-slate-950"
                       : "text-slate-500 hover:bg-white hover:text-slate-950",
@@ -34,12 +34,12 @@ export function WorkSamplePanel() {
             })}
           </div>
 
-          <div className="p-5">
+          <div className="p-4 sm:p-5">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-600">
               Work sample
             </p>
 
-            <h2 className="mt-3 text-xl font-semibold tracking-tight text-slate-950 md:text-2xl">
+            <h2 className="mt-3 text-lg font-semibold tracking-tight text-slate-950 sm:text-xl md:text-2xl">
               {activeSample.title}
             </h2>
 
@@ -62,7 +62,7 @@ export function WorkSamplePanel() {
                 </span>
               </div>
 
-              <div className="relative h-[270px] overflow-hidden bg-slate-100 md:h-[350px]">
+              <div className="relative h-[220px] overflow-hidden bg-slate-100 sm:h-[270px] md:h-[350px]">
                 <img
                   src={activeSample.image}
                   alt={activeSample.alt}
@@ -76,23 +76,23 @@ export function WorkSamplePanel() {
         </div>
       </aside>
 
-      {isPreviewOpen && (
+      {isPreviewOpen ? (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/80 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/80 p-3 backdrop-blur-sm sm:p-4"
           role="dialog"
           aria-modal="true"
           onClick={() => setIsPreviewOpen(false)}
         >
           <div
-            className="max-h-[94vh] w-[94vw] max-w-[1680px] overflow-hidden rounded-2xl border border-slate-700 bg-white shadow-2xl"
+            className="flex max-h-[94dvh] w-[94vw] max-w-[1680px] flex-col overflow-hidden rounded-2xl border border-slate-700 bg-white shadow-2xl"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3">
-              <div>
+            <div className="flex shrink-0 items-center justify-between gap-3 border-b border-slate-200 px-4 py-3">
+              <div className="min-w-0">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">
                   {activeSample.label}
                 </p>
-                <p className="text-sm font-semibold text-slate-950">
+                <p className="truncate text-sm font-semibold text-slate-950">
                   {activeSample.title}
                 </p>
               </div>
@@ -100,13 +100,13 @@ export function WorkSamplePanel() {
               <button
                 type="button"
                 onClick={() => setIsPreviewOpen(false)}
-                className="cursor-pointer rounded-md border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                className="shrink-0 cursor-pointer rounded-md border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
               >
                 Close
               </button>
             </div>
 
-            <div className="max-h-[86vh] overflow-auto bg-slate-100 p-3">
+            <div className="min-h-0 flex-1 overflow-auto bg-slate-100 p-2 sm:p-3">
               <img
                 src={activeSample.image}
                 alt={activeSample.alt}
@@ -115,7 +115,7 @@ export function WorkSamplePanel() {
             </div>
           </div>
         </div>
-      )}
+      ) : null}
     </>
   );
 }

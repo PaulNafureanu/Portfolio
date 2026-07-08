@@ -9,9 +9,9 @@ export function DashboardHeader() {
         {header.eyebrow}
       </p>
 
-      <div className="mt-3 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
+      <div className="mt-3 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
         <div>
-          <h1 className="text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
+          <h1 className="max-w-5xl text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl lg:text-4xl">
             {header.title}
           </h1>
 
@@ -20,26 +20,9 @@ export function DashboardHeader() {
           </p>
         </div>
 
-        <div className="shrink-0 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-xs text-blue-950">
+        <div className="w-fit shrink-0 rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-xs font-medium text-blue-950">
           {header.note}
         </div>
-      </div>
-
-      <div className="mt-4 flex flex-wrap items-center gap-2 text-xs">
-        {/* <span className="font-semibold uppercase tracking-[0.18em] text-blue-600">
-          {header.stackLabel}
-        </span>
-
-        <span className="text-slate-400">:</span> */}
-
-        {/* {header.stack.map((tool) => (
-          <span
-            key={tool}
-            className="rounded-full border border-blue-100 bg-white/60 px-3 py-1 font-medium text-blue-900"
-          >
-            {tool}
-          </span>
-        ))} */}
       </div>
     </header>
   );

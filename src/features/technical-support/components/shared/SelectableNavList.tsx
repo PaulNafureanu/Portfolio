@@ -14,8 +14,8 @@ export function SelectableNavList<T>({
   onSelect,
 }: SelectableNavListProps<T>) {
   return (
-    <div className="h-full overflow-auto p-3">
-      <div className="w-[280px] space-y-3">
+    <div className="h-full overflow-y-auto overflow-x-hidden p-3">
+      <div className="w-[280px] max-w-[280px] space-y-3">
         {items.map((item, index) => {
           const isActive = index === activeIndex;
 

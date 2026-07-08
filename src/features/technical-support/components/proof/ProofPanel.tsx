@@ -81,17 +81,25 @@ export function ProofPanel({
   activeCaseIndex,
   activeStageIndex,
   onOpenEvidence,
+  onGoPrevious,
+  onGoNext,
+  canGoPrevious,
+  canGoNext,
 }: ProofPanelProps) {
   const stageRecord = getStageRecord(activeStage);
   const showFreshdeskEvidence = activeStage.key === "customer-report";
 
   return (
-    <main className="min-w-0 flex-1 overflow-hidden bg-white">
-      <div className="h-full overflow-auto p-4 lg:p-5">
+    <main className="min-w-0 flex-1 bg-white xl:overflow-hidden">
+      <div className="p-4 xl:h-full xl:overflow-auto xl:p-5">
         <ProofHeader
           activeCase={activeCase}
           activeCaseIndex={activeCaseIndex}
           activeStageIndex={activeStageIndex}
+          onGoPrevious={onGoPrevious}
+          onGoNext={onGoNext}
+          canGoPrevious={canGoPrevious}
+          canGoNext={canGoNext}
         />
 
         <section className="mt-4">
@@ -111,11 +119,11 @@ export function ProofPanel({
         </section>
 
         {showFreshdeskEvidence ? (
-          <section className="mt-4 max-w-5xl">
+          <section className="mt-4 max-w-6xl">
             <EvidenceCard
               evidence={freshdeskCustomerReport}
               onOpenEvidence={onOpenEvidence}
-              imageContainerClassName="h-[360px] 2xl:h-[460px]"
+              imageContainerClassName="h-64 sm:h-80 xl:h-[360px] 2xl:h-[460px]"
               imageClassName="object-contain object-top"
             />
           </section>
