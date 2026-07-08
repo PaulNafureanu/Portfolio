@@ -1,6 +1,6 @@
 import type { WorkflowStage } from "../types/stage.types";
 
-export const stages: WorkflowStage[] = [
+export const workflowStages: WorkflowStage[] = [
   {
     key: "customer-report",
     label: "Customer report",

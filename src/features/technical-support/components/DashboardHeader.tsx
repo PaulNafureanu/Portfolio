@@ -1,4 +1,4 @@
-import { dashboardContent } from "../data/dashboard.content";
+import { dashboardContent } from "../data/dashboard.data";
 
 const { header } = dashboardContent;
 

@@ -1,6 +1,6 @@
-import { dashboardContent } from "../data/dashboard.content";
+import { dashboardContent } from "../data/dashboard.data";
 import type { WorkflowCase } from "../types/case.types";
-import { PanelShell } from "./PanelShell";
+import { PanelShell } from "./shared/PanelShell";
 
 type CaseListProps = {
   cases: WorkflowCase[];

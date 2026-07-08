@@ -1,6 +1,6 @@
 import type { WorkflowEvidence } from "../types/evidence.types";
 
-export const evidence = {
+export const workflowEvidence = {
   jiraBoard: {
     key: "jira-board",
     label: "Jira",

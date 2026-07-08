@@ -1,26 +1,32 @@
-import { dashboardContent } from "../../data/dashboard.content";
-import { evidence } from "../../data/evidence.data";
+import { dashboardContent } from "../../data/dashboard.data";
+import { workflowEvidence } from "../../data/evidence.data";
 import type { WorkflowCase } from "../../types/case.types";
 import type { OnOpenEvidenceFn } from "../../types/evidence.types";
 import type { WorkflowStage } from "../../types/stage.types";
-import { PanelShell } from "../PanelShell";
+import { PanelShell } from "../shared/PanelShell";
 import EvidenceCard from "./EvidenceCard";
 import ProofHeader from "./ProofHeader";
 
 type ProofPanelProps = {
   activeCase: WorkflowCase;
   activeStage: WorkflowStage;
+  activeCaseIndex: number;
+  activeStageIndex: number;
   onOpenEvidence: OnOpenEvidenceFn;
 };
 
 const { proof: panelCopy } = dashboardContent.panels;
-const { jiraBoard, confluenceGuide, postmanCheck } = evidence;
+const { jiraBoard, confluenceGuide, postmanCheck } = workflowEvidence;
 
 export function ProofPanel({
   activeCase,
   activeStage,
+  activeCaseIndex,
+  activeStageIndex,
   onOpenEvidence,
 }: ProofPanelProps) {
+  const stageEvidence = [jiraBoard, confluenceGuide, postmanCheck];
+
   return (
     <PanelShell
       eyebrow={panelCopy.eyebrow}
@@ -28,13 +34,23 @@ export function ProofPanel({
       description={panelCopy.description}
     >
       <div className="h-full overflow-auto p-4">
-        <ProofHeader activeCase={activeCase} />
-        <EvidenceCard evidence={jiraBoard} onOpenEvidence={onOpenEvidence} />
-        <EvidenceCard evidence={postmanCheck} onOpenEvidence={onOpenEvidence} />
-        <EvidenceCard
-          evidence={confluenceGuide}
-          onOpenEvidence={onOpenEvidence}
+        <ProofHeader
+          activeCase={activeCase}
+          activeCaseIndex={activeCaseIndex}
+          activeStageIndex={activeStageIndex}
         />
+
+        <section className="mt-4">
+          <div className="grid gap-4 xl:grid-cols-2">
+            {stageEvidence.map((evidence) => (
+              <EvidenceCard
+                key={evidence.key}
+                evidence={evidence}
+                onOpenEvidence={onOpenEvidence}
+              />
+            ))}
+          </div>
+        </section>
       </div>
     </PanelShell>
   );

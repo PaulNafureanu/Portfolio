@@ -24,13 +24,4 @@ export const dashboardContent = {
       description: "Stage note and related artifacts.",
     },
   },
-
-  proof: {
-    selectedCaseLabel: "Selected case",
-    selectedStageLabel: "Selected workflow step",
-    handlingNoteLabel: "View support note",
-    proofForStageLabel: "Related proof",
-    proofHint: "Open a screenshot to inspect the artifact.",
-    walkthroughLabel: "Walkthrough video",
-  },
 };

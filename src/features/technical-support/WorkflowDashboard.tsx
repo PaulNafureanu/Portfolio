@@ -2,12 +2,12 @@ import { useMemo, useState } from "react";
 import { ImageModal } from "../../components/ImageModal";
 import { CaseList } from "./components/CaseList";
 import { DashboardHeader } from "./components/DashboardHeader";
-import type { WorkflowStageKey } from "./types/stage.types";
-import type { WorkflowEvidence } from "./types/evidence.types";
-import { workflowCases } from "./data/cases.data";
-import { stages } from "./data/stage.data";
 import { WorkflowStageList } from "./components/WorkflowStageList";
 import { ProofPanel } from "./components/proof/ProofPanel";
+import { workflowCases } from "./data/cases.data";
+import { workflowStages } from "./data/stage.data";
+import type { WorkflowEvidence } from "./types/evidence.types";
+import type { WorkflowStageKey } from "./types/stage.types";
 
 export function WorkflowDashboard() {
   const [activeCaseIndex, setActiveCaseIndex] = useState(0);
@@ -18,7 +18,18 @@ export function WorkflowDashboard() {
   const activeCase = workflowCases[activeCaseIndex];
 
   const activeStage = useMemo(() => {
-    return stages.find((stage) => stage.key === activeStageKey) ?? stages[0];
+    return (
+      workflowStages.find((stage) => stage.key === activeStageKey) ??
+      workflowStages[0]
+    );
+  }, [activeStageKey]);
+
+  const activeStageIndex = useMemo(() => {
+    const index = workflowStages.findIndex(
+      (stage) => stage.key === activeStageKey,
+    );
+
+    return index === -1 ? 0 : index;
   }, [activeStageKey]);
 
   return (
@@ -35,7 +46,7 @@ export function WorkflowDashboard() {
             />
 
             <WorkflowStageList
-              stages={stages}
+              stages={workflowStages}
               activeStageKey={activeStageKey}
               onSelectStage={setActiveStageKey}
             />
@@ -43,6 +54,8 @@ export function WorkflowDashboard() {
             <ProofPanel
               activeCase={activeCase}
               activeStage={activeStage}
+              activeCaseIndex={activeCaseIndex}
+              activeStageIndex={activeStageIndex}
               onOpenEvidence={setModalItem}
             />
           </div>

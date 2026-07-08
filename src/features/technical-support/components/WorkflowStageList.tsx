@@ -1,6 +1,6 @@
-import { dashboardContent } from "../data/dashboard.content";
+import { dashboardContent } from "../data/dashboard.data";
 import type { WorkflowStage, WorkflowStageKey } from "../types/stage.types";
-import { PanelShell } from "./PanelShell";
+import { PanelShell } from "./shared/PanelShell";
 
 type WorkflowStageListProps = {
   stages: WorkflowStage[];
