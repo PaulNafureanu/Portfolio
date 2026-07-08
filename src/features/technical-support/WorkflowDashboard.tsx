@@ -2,12 +2,16 @@ import { useMemo, useState } from "react";
 import { ImageModal } from "../../components/ImageModal";
 import { CaseList } from "./components/CaseList";
 import { DashboardHeader } from "./components/DashboardHeader";
-import { WorkflowStageList } from "./components/WorkflowStageList";
+import { StageList } from "./components/StageList";
 import { ProofPanel } from "./components/proof/ProofPanel";
+import { ExpandableNavPanel } from "./components/shared/ExpandableNavPanel";
+import { dashboardContent } from "./data/dashboard.data";
 import { workflowCases } from "./data/cases.data";
 import { workflowStages } from "./data/stage.data";
 import type { WorkflowEvidence } from "./types/evidence.types";
 import type { WorkflowStageKey } from "./types/stage.types";
+
+const { cases: casesCopy, workflow: workflowCopy } = dashboardContent.panels;
 
 export function WorkflowDashboard() {
   const [activeCaseIndex, setActiveCaseIndex] = useState(0);
@@ -38,18 +42,32 @@ export function WorkflowDashboard() {
         <div className="mx-auto flex min-h-0 w-full max-w-[1800px] flex-1 flex-col gap-5">
           <DashboardHeader />
 
-          <div className="grid min-h-0 flex-1 gap-5 lg:grid-cols-[320px_320px_minmax(0,1fr)]">
-            <CaseList
-              cases={workflowCases}
-              activeCaseIndex={activeCaseIndex}
-              onSelectCase={setActiveCaseIndex}
-            />
+          <div className="flex min-h-0 flex-1 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+            <ExpandableNavPanel
+              label="Cases"
+              eyebrow={casesCopy.eyebrow}
+              title={casesCopy.title}
+              activeNumber={activeCaseIndex + 1}
+            >
+              <CaseList
+                cases={workflowCases}
+                activeCaseIndex={activeCaseIndex}
+                onSelectCase={setActiveCaseIndex}
+              />
+            </ExpandableNavPanel>
 
-            <WorkflowStageList
-              stages={workflowStages}
-              activeStageKey={activeStageKey}
-              onSelectStage={setActiveStageKey}
-            />
+            <ExpandableNavPanel
+              label="Workflow"
+              eyebrow={workflowCopy.eyebrow}
+              title={workflowCopy.title}
+              activeNumber={activeStageIndex + 1}
+            >
+              <StageList
+                stages={workflowStages}
+                activeStageKey={activeStageKey}
+                onSelectStage={setActiveStageKey}
+              />
+            </ExpandableNavPanel>
 
             <ProofPanel
               activeCase={activeCase}

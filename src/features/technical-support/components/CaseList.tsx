@@ -1,6 +1,5 @@
-import { dashboardContent } from "../data/dashboard.data";
 import type { WorkflowCase } from "../types/case.types";
-import { PanelShell } from "./shared/PanelShell";
+import { SelectableNavList } from "./shared/SelectableNavList";
 
 type CaseListProps = {
   cases: WorkflowCase[];
@@ -8,47 +7,18 @@ type CaseListProps = {
   onSelectCase: (index: number) => void;
 };
 
-const { cases: panelCopy } = dashboardContent.panels;
-
 export function CaseList({
   cases,
   activeCaseIndex,
   onSelectCase,
 }: CaseListProps) {
   return (
-    <PanelShell eyebrow={panelCopy.eyebrow} title={panelCopy.title}>
-      <div className="h-full overflow-auto p-3">
-        {cases.map((item, index) => {
-          const isActive = index === activeCaseIndex;
-
-          return (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => onSelectCase(index)}
-              className={[
-                "mb-3 flex w-full items-center gap-3 rounded-xl border p-3 text-left transition last:mb-0",
-                isActive
-                  ? "border-blue-300 bg-blue-50 text-slate-950"
-                  : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50",
-              ].join(" ")}
-            >
-              <span
-                className={[
-                  "flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-semibold",
-                  isActive
-                    ? "bg-blue-600 text-white"
-                    : "bg-slate-100 text-slate-500",
-                ].join(" ")}
-              >
-                {index + 1}
-              </span>
-
-              <span className="text-sm font-semibold">{item.issueClass}</span>
-            </button>
-          );
-        })}
-      </div>
-    </PanelShell>
+    <SelectableNavList
+      items={cases}
+      activeIndex={activeCaseIndex}
+      getKey={(item) => item.id}
+      getLabel={(item) => item.issueClass}
+      onSelect={(_item, index) => onSelectCase(index)}
+    />
   );
 }

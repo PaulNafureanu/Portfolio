@@ -1,0 +1,43 @@
+type ExpandableNavPanelProps = {
+  label: string;
+  eyebrow: string;
+  title: string;
+  activeNumber: number;
+  children: React.ReactNode;
+};
+
+export function ExpandableNavPanel({
+  label,
+  eyebrow,
+  title,
+  activeNumber,
+  children,
+}: ExpandableNavPanelProps) {
+  return (
+    <aside className="group flex min-h-0 w-14 shrink-0 overflow-hidden border-r border-slate-200 bg-white transition-[width] duration-300 ease-in-out hover:w-[26rem] focus-within:w-[26rem]">
+      <div className="flex w-14 shrink-0 flex-col items-center gap-4 px-2 py-4">
+        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-blue-600 text-xs font-semibold text-white">
+          {activeNumber}
+        </span>
+
+        <span className="rotate-180 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 [writing-mode:vertical-rl]">
+          {label}
+        </span>
+      </div>
+
+      <div className="min-h-0 w-[360px] shrink-0 opacity-0 transition-opacity delay-75 duration-200 ease-out group-hover:opacity-100 group-focus-within:opacity-100">
+        <div className="border-b border-slate-200 p-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">
+            {eyebrow}
+          </p>
+
+          <h2 className="mt-2 text-lg font-semibold leading-6 tracking-tight text-slate-950">
+            {title}
+          </h2>
+        </div>
+
+        <div className="min-h-0 flex-1 overflow-hidden">{children}</div>
+      </div>
+    </aside>
+  );
+}
