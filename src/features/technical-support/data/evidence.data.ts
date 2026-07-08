@@ -33,4 +33,14 @@ export const workflowEvidence = {
     alt: "Postman API response screenshot",
     type: "screenshot",
   },
+
+  freshdeskCustomerReport: {
+    key: "case01-freshdesk-customer-report",
+    label: "",
+    title: "Freshdesk",
+    description: "",
+    image: "/assets/work-samples/case01_stage01_freshdesk_customer-report.png",
+    alt: "Freshdesk ticket showing the initial customer report.",
+    type: "screenshot",
+  },
 } satisfies Record<string, WorkflowEvidence>;

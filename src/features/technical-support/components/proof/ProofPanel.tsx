@@ -16,7 +16,8 @@ type ProofPanelProps = {
 };
 
 const { proof: panelCopy } = dashboardContent.panels;
-const { jiraBoard, confluenceGuide, postmanCheck } = workflowEvidence;
+const { jiraBoard, confluenceGuide, postmanCheck, freshdeskCustomerReport } =
+  workflowEvidence;
 
 export function ProofPanel({
   activeCase,
@@ -28,11 +29,7 @@ export function ProofPanel({
   const stageEvidence = [jiraBoard, confluenceGuide, postmanCheck];
 
   return (
-    <PanelShell
-      eyebrow={panelCopy.eyebrow}
-      title={panelCopy.title}
-      description={panelCopy.description}
-    >
+    <PanelShell hideHeader eyebrow={panelCopy.eyebrow} title={panelCopy.title}>
       <div className="h-full overflow-auto p-4">
         <ProofHeader
           activeCase={activeCase}
@@ -40,15 +37,22 @@ export function ProofPanel({
           activeStageIndex={activeStageIndex}
         />
 
-        <section className="mt-4">
-          <div className="grid gap-4 xl:grid-cols-2">
-            {stageEvidence.map((evidence) => (
-              <EvidenceCard
-                key={evidence.key}
-                evidence={evidence}
-                onOpenEvidence={onOpenEvidence}
-              />
-            ))}
+        <section className="mt-4 rounded-2xl  border-slate-200 bg-white">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">
+            Customer message
+          </p>
+
+          <div className="mt-3 rounded-xl border border-slate-200 bg-slate-50 p-4">
+            <p className="text-xs font-semibold text-slate-500">
+              Demo Customer
+            </p>
+
+            <p className="mt-2 text-sm leading-6 text-slate-700">
+              Hi, I paid my invoice yesterday, but my account still says unpaid
+              and I can’t access the premium features. This is really
+              frustrating because I need the account active today for work. Can
+              you fix this ASAP?
+            </p>
           </div>
         </section>
       </div>

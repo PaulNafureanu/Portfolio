@@ -3,9 +3,9 @@ export const dashboardContent = {
     eyebrow: "Support Operations Lab",
     title: "Technical Support Workflow Examples",
     description:
-      "A proof dashboard showing how I handle simulated SaaS support cases from customer intake to triage, technical investigation, customer update, Jira escalation, and documentation.",
+      "A support workflow dashboard showing simulated SaaS cases from intake and triage through investigation, customer updates, escalation, and documentation.",
     note: "Simulated cases · No client data",
-    stackLabel: "Support stack used",
+    stackLabel: "I used",
     stack: [
       "Freshdesk",
       "Jira / JSM",
@@ -17,25 +17,20 @@ export const dashboardContent = {
       "Auth / access",
       "ITSM vocabulary",
     ],
-    guide:
-      "How to use: Select a case, choose a workflow step, then open the related evidence screenshots.",
   },
 
   panels: {
     cases: {
       eyebrow: "Cases",
-      title: "Support cases",
-      description: "Select a simulated support scenario.",
+      title: "Select a support case",
     },
     workflow: {
       eyebrow: "Workflow",
-      title: "Handling path",
-      description: "Follow the case from intake to resolution.",
+      title: "From incident to resolution",
     },
     proof: {
-      eyebrow: "Proof",
-      title: "Case evidence",
-      description: "Review notes, checks, and related artifacts.",
+      eyebrow: "",
+      title: "",
     },
   },
 };

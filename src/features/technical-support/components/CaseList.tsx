@@ -16,11 +16,7 @@ export function CaseList({
   onSelectCase,
 }: CaseListProps) {
   return (
-    <PanelShell
-      eyebrow={panelCopy.eyebrow}
-      title={panelCopy.title}
-      description={panelCopy.description}
-    >
+    <PanelShell eyebrow={panelCopy.eyebrow} title={panelCopy.title}>
       <div className="h-full overflow-auto p-3">
         {cases.map((item, index) => {
           const isActive = index === activeCaseIndex;
@@ -31,23 +27,24 @@ export function CaseList({
               type="button"
               onClick={() => onSelectCase(index)}
               className={[
-                "mb-3 w-full rounded-xl border p-4 text-left transition last:mb-0",
+                "mb-3 flex w-full items-center gap-3 rounded-xl border p-3 text-left transition last:mb-0",
                 isActive
                   ? "border-blue-300 bg-blue-50 text-slate-950"
-                  : "border-slate-200 bg-white text-slate-950 hover:bg-slate-50",
+                  : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50",
               ].join(" ")}
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-600">
-                Case {String(index + 1).padStart(2, "0")}
-              </p>
+              <span
+                className={[
+                  "flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-semibold",
+                  isActive
+                    ? "bg-blue-600 text-white"
+                    : "bg-slate-100 text-slate-500",
+                ].join(" ")}
+              >
+                {index + 1}
+              </span>
 
-              <p className="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                {item.issueClass}
-              </p>
-
-              <h3 className="mt-2 text-sm font-semibold leading-5">
-                {item.title}
-              </h3>
+              <span className="text-sm font-semibold">{item.issueClass}</span>
             </button>
           );
         })}

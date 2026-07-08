@@ -16,11 +16,7 @@ export function WorkflowStageList({
   onSelectStage,
 }: WorkflowStageListProps) {
   return (
-    <PanelShell
-      eyebrow={panelCopy.eyebrow}
-      title={panelCopy.title}
-      description={panelCopy.description}
-    >
+    <PanelShell eyebrow={panelCopy.eyebrow} title={panelCopy.title}>
       <div className="h-full overflow-auto p-3">
         {stages.map((stage, index) => {
           const isActive = stage.key === activeStageKey;
