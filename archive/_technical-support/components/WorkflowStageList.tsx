@@ -1,5 +1,5 @@
-import { dashboardContent } from "../data/dashboard.content";
-import type { WorkflowStage, WorkflowStageKey } from "../types/stage.types";
+import { technicalSupportDashboardContent } from "../data/technicalSupportDashboard.content";
+import type { WorkflowStage, WorkflowStageKey } from "../types";
 import { PanelShell } from "./PanelShell";
 
 type WorkflowStageListProps = {
@@ -8,7 +8,7 @@ type WorkflowStageListProps = {
   onSelectStage: (key: WorkflowStageKey) => void;
 };
 
-const { workflow: panelCopy } = dashboardContent.panels;
+const { workflow: panelCopy } = technicalSupportDashboardContent.panels;
 
 export function WorkflowStageList({
   stages,

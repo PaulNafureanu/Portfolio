@@ -2,12 +2,11 @@ import { useMemo, useState } from "react";
 import { ImageModal } from "../../components/ImageModal";
 import { CaseList } from "./components/CaseList";
 import { DashboardHeader } from "./components/DashboardHeader";
-import type { WorkflowStageKey } from "./types/stage.types";
-import type { WorkflowEvidence } from "./types/evidence.types";
-import { workflowCases } from "./data/cases.data";
-import { stages } from "./data/stage.data";
+import { ProofPanel } from "./components/ProofPanel";
 import { WorkflowStageList } from "./components/WorkflowStageList";
-import { ProofPanel } from "./components/proof/ProofPanel";
+import { technicalSupportCases } from "./data/technicalSupportCases.data";
+import { technicalSupportWorkflowStages } from "./data/technicalSupportWorkflowStages.data";
+import type { WorkflowEvidence, WorkflowStageKey } from "./types";
 
 export function WorkflowDashboard() {
   const [activeCaseIndex, setActiveCaseIndex] = useState(0);
@@ -15,10 +14,14 @@ export function WorkflowDashboard() {
     useState<WorkflowStageKey>("customer-report");
   const [modalItem, setModalItem] = useState<WorkflowEvidence | null>(null);
 
-  const activeCase = workflowCases[activeCaseIndex];
+  const activeCase = technicalSupportCases[activeCaseIndex];
 
   const activeStage = useMemo(() => {
-    return stages.find((stage) => stage.key === activeStageKey) ?? stages[0];
+    return (
+      technicalSupportWorkflowStages.find(
+        (stage) => stage.key === activeStageKey,
+      ) ?? technicalSupportWorkflowStages[0]
+    );
   }, [activeStageKey]);
 
   return (
@@ -29,13 +32,13 @@ export function WorkflowDashboard() {
 
           <div className="grid min-h-0 flex-1 gap-5 lg:grid-cols-[320px_320px_minmax(0,1fr)]">
             <CaseList
-              cases={workflowCases}
+              cases={technicalSupportCases}
               activeCaseIndex={activeCaseIndex}
               onSelectCase={setActiveCaseIndex}
             />
 
             <WorkflowStageList
-              stages={stages}
+              stages={technicalSupportWorkflowStages}
               activeStageKey={activeStageKey}
               onSelectStage={setActiveStageKey}
             />

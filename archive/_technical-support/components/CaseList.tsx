@@ -1,5 +1,5 @@
-import { dashboardContent } from "../data/dashboard.content";
-import type { WorkflowCase } from "../types/case.types";
+import { technicalSupportDashboardContent } from "../data/technicalSupportDashboard.content";
+import type { WorkflowCase } from "../types";
 import { PanelShell } from "./PanelShell";
 
 type CaseListProps = {
@@ -8,7 +8,7 @@ type CaseListProps = {
   onSelectCase: (index: number) => void;
 };
 
-const { cases: panelCopy } = dashboardContent.panels;
+const { cases: panelCopy } = technicalSupportDashboardContent.panels;
 
 export function CaseList({
   cases,

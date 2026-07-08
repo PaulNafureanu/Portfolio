@@ -1,6 +1,6 @@
-import { dashboardContent } from "../data/dashboard.content";
+import { technicalSupportDashboardContent } from "../data/technicalSupportDashboard.content";
 
-const { header } = dashboardContent;
+const { header } = technicalSupportDashboardContent;
 
 export function DashboardHeader() {
   return (
