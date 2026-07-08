@@ -90,6 +90,10 @@ export function WorkflowDashboard() {
                 activeCaseIndex={activeCaseIndex}
                 activeStageIndex={activeStageIndex}
                 onOpenEvidence={setModalItem}
+                onGoPrevious={handleGoPrevious}
+                onGoNext={handleGoNext}
+                canGoPrevious={canGoPrevious}
+                canGoNext={canGoNext}
               />
             </div>
           </div>

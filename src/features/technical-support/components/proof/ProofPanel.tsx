@@ -11,6 +11,10 @@ type ProofPanelProps = {
   activeCaseIndex: number;
   activeStageIndex: number;
   onOpenEvidence: OnOpenEvidenceFn;
+  onGoPrevious: () => void;
+  onGoNext: () => void;
+  canGoPrevious: boolean;
+  canGoNext: boolean;
 };
 
 const { freshdeskCustomerReport } = workflowEvidence;
