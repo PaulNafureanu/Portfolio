@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router";
-import { AppLayout } from "./AppLayout";
 import { Home } from "../features/home/Home";
 import { WorkflowDashboard } from "../features/technical-support/WorkflowDashboard";
+import { AppLayout } from "./AppLayout";
 
 function App() {
   return (
