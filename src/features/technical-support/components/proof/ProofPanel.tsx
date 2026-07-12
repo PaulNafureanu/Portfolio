@@ -123,11 +123,11 @@ export function ProofPanel({
         </section>
 
         {showFreshdeskEvidence ? (
-          <section className="mt-4 max-w-6xl">
+          <section className="mt-4 w-full max-w-[440px]">
             <EvidenceCard
               evidence={freshdeskCustomerReport}
               onOpenEvidence={onOpenEvidence}
-              imageContainerClassName="h-64 sm:h-80 xl:h-[360px] 2xl:h-[460px]"
+              imageContainerClassName="h-44 sm:h-52 xl:h-[220px]"
               imageClassName="object-contain object-top"
             />
           </section>

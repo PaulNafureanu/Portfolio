@@ -19,6 +19,7 @@ export function WorkflowDashboard() {
   const [activeStageKey, setActiveStageKey] =
     useState<WorkflowStageKey>("customer-report");
   const [modalItem, setModalItem] = useState<WorkflowEvidence | null>(null);
+  const [isWorkflowOpen, setIsWorkflowOpen] = useState(false);
 
   const activeCase = workflowCases[activeCaseIndex];
 
@@ -104,6 +105,7 @@ export function WorkflowDashboard() {
               eyebrow={casesCopy.eyebrow}
               title={casesCopy.title}
               activeNumber={activeCaseIndex + 1}
+              expanded={!isWorkflowOpen}
             >
               <CaseList
                 cases={workflowCases}
@@ -112,18 +114,25 @@ export function WorkflowDashboard() {
               />
             </ExpandableNavPanel>
 
-            <ExpandableNavPanel
-              label="Workflow"
-              eyebrow={workflowCopy.eyebrow}
-              title={workflowCopy.title}
-              activeNumber={activeStageIndex + 1}
+            <div
+              className="flex h-full min-h-0 shrink-0"
+              onMouseEnter={() => setIsWorkflowOpen(true)}
+              onMouseLeave={() => setIsWorkflowOpen(false)}
             >
-              <StageList
-                stages={workflowStages}
-                activeStageKey={activeStageKey}
-                onSelectStage={setActiveStageKey}
-              />
-            </ExpandableNavPanel>
+              <ExpandableNavPanel
+                label="Workflow"
+                eyebrow={workflowCopy.eyebrow}
+                title={workflowCopy.title}
+                activeNumber={activeStageIndex + 1}
+                expanded={isWorkflowOpen}
+              >
+                <StageList
+                  stages={workflowStages}
+                  activeStageKey={activeStageKey}
+                  onSelectStage={setActiveStageKey}
+                />
+              </ExpandableNavPanel>
+            </div>
 
             <ProofPanel
               activeCase={activeCase}

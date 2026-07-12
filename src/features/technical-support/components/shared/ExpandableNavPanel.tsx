@@ -4,6 +4,7 @@ type ExpandableNavPanelProps = {
   title: string;
   activeNumber: number;
   children: React.ReactNode;
+  expanded: boolean;
 };
 
 export function ExpandableNavPanel({
@@ -12,9 +13,16 @@ export function ExpandableNavPanel({
   title,
   activeNumber,
   children,
+  expanded,
 }: ExpandableNavPanelProps) {
   return (
-    <aside className="group flex h-full min-h-0 w-14 shrink-0 overflow-hidden border-r border-slate-200 bg-white transition-[width] duration-500 ease-out hover:w-[26rem] focus-within:w-[26rem] motion-reduce:transition-none">
+    <aside
+      className={[
+        "flex h-full min-h-0 shrink-0 overflow-hidden border-r border-slate-200 bg-white",
+        "transition-[width] duration-500 ease-out motion-reduce:transition-none",
+        expanded ? "w-[26rem]" : "w-14",
+      ].join(" ")}
+    >
       <div className="flex w-14 shrink-0 flex-col items-center gap-4 px-2 py-4">
         <span className="flex h-7 w-7 items-center justify-center rounded-full bg-blue-600 text-xs font-semibold text-white">
           {activeNumber}
@@ -25,7 +33,14 @@ export function ExpandableNavPanel({
         </span>
       </div>
 
-      <div className="flex min-h-0 w-[360px] shrink-0 flex-col opacity-0 transition-opacity delay-100 duration-200 ease-out group-hover:opacity-100 group-focus-within:opacity-100 motion-reduce:transition-none">
+      <div
+        className={[
+          "flex min-h-0 w-[360px] shrink-0 flex-col",
+          "transition-opacity delay-100 duration-200 ease-out",
+          "motion-reduce:transition-none",
+          expanded ? "opacity-100" : "opacity-0",
+        ].join(" ")}
+      >
         <div className="border-b border-slate-200 p-4">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-600">
             {eyebrow}
