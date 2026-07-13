@@ -33,7 +33,7 @@ export function WorkSamplePanel() {
       <aside className="w-full min-w-0 max-w-[860px] rounded-[1.25rem] border border-slate-200 bg-white p-1.5 shadow-sm sm:rounded-[1.75rem] sm:p-3 lg:justify-self-end">
         <div className="min-w-0 overflow-hidden rounded-[0.95rem] border border-slate-200 bg-white sm:rounded-[1.2rem]">
           <div
-            className="grid min-w-0 grid-cols-6 border-b border-slate-200 bg-slate-50"
+            className="grid min-w-0 grid-cols-6 border-b border-slate-200 bg-slate-50 [container-type:inline-size]"
             role="tablist"
             aria-label="Support tool work samples"
           >
@@ -50,7 +50,16 @@ export function WorkSamplePanel() {
                   title={sample.label}
                   onClick={() => setActiveKey(sample.key)}
                   className={[
-                    "min-w-0 cursor-pointer overflow-hidden whitespace-nowrap border-r border-slate-200 px-0.5 py-2.5 text-center text-[8px] font-medium leading-none tracking-[-0.02em] transition last:border-r-0 focus-visible:relative focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-600 min-[350px]:text-[9px] min-[420px]:px-1 min-[420px]:text-[10px] sm:px-2 sm:py-3 sm:text-xs lg:text-[10px] xl:text-[11px] 2xl:text-xs",
+                    "min-w-0 cursor-pointer overflow-hidden whitespace-nowrap",
+                    "border-r border-slate-200 last:border-r-0",
+                    "px-[clamp(0.25rem,1.5cqw,0.75rem)]",
+                    "py-[clamp(0.55rem,1.8cqw,0.75rem)]",
+                    "text-center text-[clamp(0.55rem,2.25cqw,0.75rem)]",
+                    "font-medium leading-none tracking-[-0.015em]",
+                    "transition",
+                    "focus-visible:relative focus-visible:z-10",
+                    "focus-visible:outline-none focus-visible:ring-2",
+                    "focus-visible:ring-inset focus-visible:ring-blue-600",
                     isActive
                       ? "bg-white text-slate-950"
                       : "text-slate-500 hover:bg-white hover:text-slate-950",
@@ -68,7 +77,7 @@ export function WorkSamplePanel() {
             className="min-w-0 p-3.5 sm:p-5"
           >
             <p className="text-[0.625rem] font-semibold uppercase tracking-[0.2em] text-blue-600 sm:text-xs sm:tracking-[0.22em]">
-              Work sample
+              SELECTED PROJECT
             </p>
 
             <h2 className="mt-2.5 break-words text-lg font-semibold leading-snug tracking-tight text-slate-950 sm:mt-3 sm:text-xl md:text-2xl">

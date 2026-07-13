@@ -15,21 +15,20 @@ export type HomeContent = {
 };
 
 export const supportHomeContent: HomeContent = {
-  eyebrow: "Technical / Application / SaaS Support",
+  eyebrow: "APPLICATION SUPPORT",
   name: "Paul-Andrei Nafureanu",
   roleLine:
-    "Technical / Application Support candidate focused on SaaS and product-support workflows.",
-  headline:
-    "I structure support tickets, document investigations, update customers clearly, and escalate issues with useful context.",
+    "Application Support Specialist focused on SaaS troubleshooting, incident coordination, and customer communication.",
   supporting:
-    "Background across customer support, regulated banking procedures, data/document validation, operations, and technical account support.",
+    "I structure customer-reported issues into clear investigations, actionable escalations, and documented resolution paths.",
+  headline: "",
   primaryCta: {
-    label: "View support workflows",
-    href: "/technical-support-workflow-examples",
+    label: "View case library",
+    href: "/support-cases",
   },
   secondaryCta: {
     label: "Download CV",
-    href: "/cv.pdf",
+    href: "/Paul Andrei Nafureanu Resume.pdf",
   },
 };
 

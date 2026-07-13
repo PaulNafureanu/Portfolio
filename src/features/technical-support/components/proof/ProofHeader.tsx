@@ -23,8 +23,12 @@ export default function ProofHeader({
     "inline-flex h-8 min-w-14 items-center justify-center rounded-lg border border-slate-200 bg-white px-3 text-xs font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none";
 
   const nextButtonClassName =
-    "inline-flex h-8 min-w-14 items-center justify-center rounded-lg border border-blue-600 bg-blue-600 px-3 text-xs font-semibold text-white shadow-sm transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:border-slate-200 disabled:bg-white disabled:text-slate-400 disabled:shadow-none";
-
+    "inline-flex h-8 min-w-14 items-center justify-center rounded-lg border " +
+    "!border-blue-600 !bg-blue-600 px-3 text-xs font-semibold !text-white " +
+    "shadow-sm transition enabled:hover:!border-blue-700 enabled:hover:!bg-blue-700 " +
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 " +
+    "focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:!border-slate-200 " +
+    "disabled:!bg-white disabled:!text-slate-400 disabled:shadow-none";
   return (
     <section className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
       <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">

@@ -9,10 +9,7 @@ function App() {
       <Routes>
         <Route element={<AppLayout />}>
           <Route path="/" element={<Home />} />
-          <Route
-            path="/technical-support-workflow-examples"
-            element={<WorkflowDashboard />}
-          />
+          <Route path="/support-cases" element={<WorkflowDashboard />} />
         </Route>
       </Routes>
     </BrowserRouter>

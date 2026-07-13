@@ -21,14 +21,14 @@ export function AppLayout() {
             </Link>
 
             <Link
-              to="/technical-support-workflow-examples"
+              to="/support-cases"
               className="rounded-sm px-1 py-1 text-slate-600 hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
             >
-              Workflows
+              Case Library
             </Link>
 
             <a
-              href="mailto:paul.nafureanu@gmail.com"
+              href="mailto:paulandrei.nafureanu@gmail.com"
               className="shrink-0 rounded-md border border-slate-300 bg-white px-3 py-1.5 font-medium text-slate-800 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
             >
               Contact

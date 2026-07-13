@@ -15,7 +15,7 @@ export function Home() {
             {homeContent.name}
           </h1>
 
-          <p className="mt-5 max-w-2xl text-sm leading-6 text-slate-800 sm:mt-6 sm:text-lg sm:leading-8 xl:text-xl xl:leading-9">
+          <p className="mt-5 max-w-2xl text-sm leading-6 text-slate-800 sm:mt-6 sm:text-base sm:leading-7 xl:text-lg xl:leading-8">
             {homeContent.roleLine}
           </p>
 
