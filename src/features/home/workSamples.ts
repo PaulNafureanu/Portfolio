@@ -7,6 +7,9 @@ export type WorkSample = {
   alt: string;
 };
 
+const case01Image = (filename: string): string =>
+  `/assets/work-samples/case01/${filename}`;
+
 export const workSamples: WorkSample[] = [
   {
     key: "freshdesk",
@@ -14,52 +17,52 @@ export const workSamples: WorkSample[] = [
     title: "Ticket communication and ownership",
     description:
       "Clear customer updates, internal documentation, status management, and resolution follow-up.",
-    image: "/assets/work-samples/freshdesk-ticket.png",
-    alt: "Freshdesk support ticket showing customer communication and internal notes",
+    image: case01Image("case-01-stage-05-customer-progress-update.png"),
+    alt: "Freshdesk support ticket showing a customer progress update and customer acknowledgement.",
   },
   {
     key: "jira",
     label: "Jira",
     title: "Incident tracking and escalation",
     description:
-      "Structured incidents with impact, priority, reproduction steps, evidence, and escalation context.",
-    image: "/assets/work-samples/jira-escalation.png",
-    alt: "Jira Service Management ticket containing escalation details",
+      "Structured incidents with impact, priority, technical evidence, identifiers, and escalation context.",
+    image: case01Image("case-01-stage-06-jira-escalation.png"),
+    alt: "Jira incident showing customer impact, expected and actual behavior, technical identifiers, and investigation findings.",
   },
   {
     key: "postman",
     label: "Postman",
     title: "API troubleshooting",
     description:
-      "Reproducing failures, inspecting responses, and documenting findings for technical escalation.",
-    image: "/assets/work-samples/postman-investigation.png",
-    alt: "Postman API request and response used during a support investigation",
+      "Reproducing failures, comparing system states, inspecting responses, and validating remediation.",
+    image: case01Image("case-01-stage-04-sync-failure-root-cause.png"),
+    alt: "Postman response showing a failed entitlement synchronization event, HTTP 502 error, and exhausted retries.",
   },
   {
     key: "devtools",
     label: "DevTools",
     title: "Browser issue isolation",
     description:
-      "Inspecting network activity, console errors, headers, and HAR evidence to isolate failures.",
-    image: "/assets/work-samples/devtools-network.png",
-    alt: "Browser developer tools network panel showing a failed request",
+      "Inspecting network activity, console errors, request headers, storage, and browser-specific behavior.",
+    image: case01Image("case-01-stage-04-devtools-network-failure.png"),
+    alt: "Browser developer tools showing a failed entitlement activation request and HTTP 502 response.",
   },
   {
     key: "sql",
     label: "SQL",
     title: "Application data validation",
     description:
-      "Verifying account, payment, entitlement, and application records during investigations.",
-    image: "/assets/work-samples/sql-validation.png",
-    alt: "SQL query results used to validate application records",
+      "Verifying account, payment, subscription, entitlement, and application records during investigations.",
+    image: case01Image("case-01-stage-04-sql-entitlement-mismatch.png"),
+    alt: "SQL query results showing a paid active subscription with an inactive premium entitlement.",
   },
   {
     key: "confluence",
     label: "Confluence",
     title: "Knowledge base documentation",
     description:
-      "Reusable guidance covering symptoms, investigation steps, resolution, and escalation criteria.",
-    image: "/assets/work-samples/confluence-guide.png",
-    alt: "Confluence troubleshooting guide for a recurring support issue",
+      "Reusable guidance covering symptoms, investigation steps, remediation, verification, and escalation criteria.",
+    image: case01Image("case-01-stage-07-confluence-billing-sync-runbook.png"),
+    alt: "Confluence troubleshooting runbook for payments that do not activate premium access.",
   },
 ];
