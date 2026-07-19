@@ -64,13 +64,17 @@ export default function AdminProductsPage() {
           </p>
         </div>
 
-        <button
-          type="button"
-          className="inline-flex min-h-12 items-center justify-center gap-2 self-start rounded-xl bg-[#172019] px-5 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#29352d]"
+        <span
+          className="
+    inline-flex min-h-12 items-center justify-center gap-2 self-start
+    rounded-xl bg-[#172019] px-5
+    font-extrabold text-white
+    shadow-sm
+  "
         >
-          <Plus size={18} />
-          Add product
-        </button>
+          <Plus size={18} className="text-white" />
+          <span className="text-white">Add product</span>
+        </span>
       </div>
 
       <div className="mt-9 grid grid-cols-2 gap-4 lg:grid-cols-4">
