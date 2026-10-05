@@ -15,20 +15,19 @@ export type HomeContent = {
 };
 
 export const supportHomeContent: HomeContent = {
-  eyebrow: "APPLICATION SUPPORT",
+  eyebrow: "Full-Stack Software Engineer (Junior / Entry Level)",
   name: "Paul-Andrei Nafureanu",
   roleLine:
-    "Application Support Specialist focused on SaaS troubleshooting, incident coordination, and customer communication.",
-  supporting:
-    "I structure customer-reported issues into clear investigations, actionable escalations, and documented resolution paths.",
+    "I design and build production-ready web applications from requirements and architecture through development, testing, and deployment.",
+  supporting: "",
   headline: "",
   primaryCta: {
-    label: "View case library",
-    href: "/support-cases",
+    label: "View Projects",
+    href: "/Portfolio",
   },
   secondaryCta: {
-    label: "Download CV",
-    href: "/Paul Andrei Nafureanu Resume.pdf",
+    label: "Contact Me",
+    href: "/contact",
   },
 };
 

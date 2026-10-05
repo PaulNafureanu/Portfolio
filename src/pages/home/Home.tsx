@@ -1,17 +1,32 @@
 import { Link } from "react-router";
 import { homeContent } from "./homeContent";
-import { WorkSamplePanel } from "./WorkSamplePanel";
+import TechStack from "./techstack/TechStack";
 
 export function Home() {
   return (
-    <section className="h-full w-full min-w-0 overflow-x-hidden px-3 py-8 sm:px-6 sm:py-10 md:px-10 lg:px-12 xl:overflow-y-auto xl:px-16 2xl:px-24">
-      <div className="mx-auto grid w-full min-w-0 max-w-[1800px] gap-10 lg:min-h-full lg:grid-cols-[minmax(0,0.9fr)_minmax(0,0.95fr)] lg:items-center lg:gap-12 xl:gap-16">
-        <div className="min-w-0 max-w-3xl">
-          <p className="mb-4 max-w-full break-words text-[0.625rem] font-semibold uppercase leading-5 tracking-[0.18em] text-blue-600 sm:mb-5 sm:text-xs sm:tracking-[0.24em]">
+    <section className="h-full min-h-0 w-full min-w-0 overflow-x-hidden px-3 py-8 sm:px-6 sm:py-10 md:px-10 lg:px-12 xl:overflow-y-auto xl:px-16 2xl:px-24">
+      <div
+        className="
+          mx-auto
+          grid
+          h-full
+          min-h-0
+          w-full
+          min-w-0
+          max-w-[1800px]
+          grid-cols-1
+          gap-10
+          2xl:grid-cols-3
+          2xl:items-start
+          2xl:gap-16
+        "
+      >
+        <div className="min-w-0 max-w-2xl lg:col-span-1 2xl:self-start 2xl:top-1/4">
+          <p className="mb-4 max-w-full wrap-break-words text-[0.625rem] font-semibold uppercase leading-5 tracking-[0.18em] text-blue-600 sm:mb-5 sm:text-xs sm:tracking-[0.24em]">
             {homeContent.eyebrow}
           </p>
 
-          <h1 className="max-w-4xl break-words text-[clamp(2.15rem,10.5vw,4.5rem)] font-semibold leading-[1.02] tracking-tight text-slate-950">
+          <h1 className="max-w-4xl wrap-break-words text-[clamp(2.15rem,10.5vw,4.5rem)] font-semibold leading-[1.02] tracking-tight text-slate-950">
             {homeContent.name}
           </h1>
 
@@ -44,8 +59,8 @@ export function Home() {
           </div>
         </div>
 
-        <div className="min-w-0">
-          <WorkSamplePanel />
+        <div className="min-h-0 min-w-0 2xl:col-span-2 2xl:h-full">
+          <TechStack />
         </div>
       </div>
     </section>

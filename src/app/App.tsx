@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router";
-import EcommerceApp from "../features/e-commerce/EcommerceApp";
-import { Home } from "../features/home/Home";
-import { WorkflowDashboard } from "../features/technical-support/WorkflowDashboard";
+import { Home } from "../pages/home/Home";
 import { AppLayout } from "./AppLayout";
+import { Portfolio } from "../pages/portfolio/Portfolio";
+import { Contact } from "../pages/contact/Contact";
 
 function App() {
   return (
@@ -10,10 +10,9 @@ function App() {
       <Routes>
         <Route element={<AppLayout />}>
           <Route index element={<Home />} />
-          <Route path="support-cases" element={<WorkflowDashboard />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/contact" element={<Contact />} />
         </Route>
-
-        <Route path="ecommerce/*" element={<EcommerceApp />} />
       </Routes>
     </BrowserRouter>
   );
