@@ -18,7 +18,7 @@ export const supportHomeContent: HomeContent = {
   eyebrow: "Full-Stack Software Engineer",
   name: "Paul-Andrei Nafureanu",
   roleLine:
-    "I design and build production-ready web applications from requirements and architecture through development, testing, and deployment.",
+    "I design and build production-ready applications and systems from requirements and architecture through development, testing, and deployment.",
   supporting: "",
   headline: "",
   primaryCta: {
