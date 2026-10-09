@@ -15,7 +15,7 @@ export type HomeContent = {
 };
 
 export const supportHomeContent: HomeContent = {
-  eyebrow: "Full-Stack Software Engineer (Junior / Entry Level)",
+  eyebrow: "Full-Stack Software Engineer",
   name: "Paul-Andrei Nafureanu",
   roleLine:
     "I design and build production-ready web applications from requirements and architecture through development, testing, and deployment.",
