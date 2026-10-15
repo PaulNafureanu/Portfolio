@@ -1,10 +1,10 @@
 import { useMemo, useState } from "react";
 import { ReactFlow } from "@xyflow/react";
 
-import { buildGraph, getGraphSize } from "./graph";
-import type { TechNode } from "./types";
-import { stackTree } from "./stackContent";
-import { useElementSize } from "./useElementSize";
+import { buildGraph, getGraphSize } from "./components/graph";
+import type { TechNode } from "./components/types";
+import { stackTree } from "./components/stackContent";
+import { useElementSize } from "./components/useElementSize";
 
 const startDomain = stackTree.children?.at(0);
 const startCapability = startDomain?.children?.at(0);
@@ -46,7 +46,7 @@ export default function TechStack() {
   };
 
   return (
-    <div ref={ref} className="relative h-full w-full">
+    <div ref={ref} className="w-full h-full">
       {isMeasured && graph && (
         <ReactFlow
           nodes={graph.nodes}

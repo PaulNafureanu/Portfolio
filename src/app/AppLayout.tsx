@@ -1,38 +1,12 @@
-import { Link, Outlet } from "react-router";
-
-const nameStyle =
-  "min-w-0 truncate text-sm font-semibold text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2";
-const linkStyle =
-  "rounded-sm px-1 py-1 text-slate-600 hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600";
-
-const navLinks = [
-  { url: "/", label: "Home" },
-  { url: "/work", label: "Work" },
-  { url: "/contact", label: "Contact" },
-];
+import { Outlet } from "react-router";
 
 export function AppLayout() {
+  const DEBUG = false;
+  const debugStyles = DEBUG ? "**:outline-2 **:outline-blue-500" : "";
+
   return (
-    <div className="min-h-dvh w-full min-w-0 overflow-x-hidden bg-slate-50 text-slate-950 xl:flex xl:h-dvh xl:flex-col xl:overflow-hidden">
-      <header className="shrink-0 border-b border-slate-200 bg-white">
-        <nav className="mx-auto flex w-full max-w-[1800px] flex-col items-stretch gap-3 px-3 py-3 min-[420px]:flex-row min-[420px]:items-center min-[420px]:justify-between sm:min-h-14 sm:px-6 md:px-8 xl:h-14 xl:flex-nowrap xl:px-10 xl:py-0 2xl:px-12">
-          <Link to="/" className={nameStyle}>
-            Paul-Andrei Nafureanu
-          </Link>
-
-          <div className="flex w-full min-w-0 items-center justify-between gap-2 text-xs min-[420px]:w-auto min-[420px]:justify-start sm:gap-5 sm:text-sm">
-            {navLinks.map(({ url, label }) => (
-              <Link to={url} className={linkStyle} key={label}>
-                {label}
-              </Link>
-            ))}
-          </div>
-        </nav>
-      </header>
-
-      <main className="min-w-0 flex-1 xl:min-h-0 xl:overflow-hidden">
-        <Outlet />
-      </main>
+    <div className={`${debugStyles}`}>
+      <Outlet />
     </div>
   );
 }

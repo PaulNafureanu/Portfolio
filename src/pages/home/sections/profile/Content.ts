@@ -1,4 +1,4 @@
-export type HomeContent = {
+export type ProfileContent = {
   eyebrow: string;
   name: string;
   roleLine: string;
@@ -14,7 +14,7 @@ export type HomeContent = {
   };
 };
 
-export const supportHomeContent: HomeContent = {
+export const SWEProfile: ProfileContent = {
   eyebrow: "Full-Stack Software Engineer",
   name: "Paul-Andrei Nafureanu",
   roleLine:
@@ -31,4 +31,4 @@ export const supportHomeContent: HomeContent = {
   },
 };
 
-export const homeContent = supportHomeContent;
+export const homeContent = SWEProfile;

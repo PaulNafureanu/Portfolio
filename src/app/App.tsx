@@ -1,17 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router";
-import { Home } from "../pages/home/Home";
 import { AppLayout } from "./AppLayout";
-import { Portfolio } from "../pages/portfolio/Portfolio";
-import { Contact } from "../pages/contact/Contact";
+import { HomePage } from "../pages/home/HomePage";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route element={<AppLayout />}>
-          <Route index element={<Home />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route index element={<HomePage />} />
         </Route>
       </Routes>
     </BrowserRouter>
