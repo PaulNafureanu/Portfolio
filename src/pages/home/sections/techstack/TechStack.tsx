@@ -6,8 +6,8 @@ import type { TechNode } from "./components/types";
 import { stackTree } from "./components/stackContent";
 import { useElementSize } from "./components/useElementSize";
 
-const startDomain = stackTree.children?.at(0);
-const startCapability = startDomain?.children?.at(0);
+const startDomain = stackTree.children?.at(2);
+const startCapability = startDomain?.children?.at(5);
 
 const initialDomainId = startDomain?.id ?? "";
 const initialCapabilityId = startCapability?.id ?? "";

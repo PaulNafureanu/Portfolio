@@ -17,8 +17,7 @@ export type ProfileContent = {
 export const SWEProfile: ProfileContent = {
   eyebrow: "Full-Stack Software Engineer",
   name: "Paul-Andrei Nafureanu",
-  roleLine:
-    "I design and build production-ready applications and systems from requirements and architecture through development, testing, and deployment.",
+  roleLine: "I design and build production-ready applications and systems.",
   supporting: "",
   headline: "",
   primaryCta: {
